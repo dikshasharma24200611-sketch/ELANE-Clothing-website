@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ELANE | Modern Clothing</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: #f5f0e8;
+            color: #2d2925;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 7%;
+            background: #f5f0e8;
+            border-bottom: 1px solid #d8d0c5;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 28px;
+            letter-spacing: 5px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #2d2925;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        nav ul li a:hover {
+            color: #8b6f55;
+        }
+
+        .cart {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+
+        /* HERO */
+
+        .hero {
+            min-height: 88vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            background: #e7ded1;
+        }
+
+        .hero-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 10%;
+        }
+
+        .small-text {
+            font-family: Arial, sans-serif;
+            letter-spacing: 4px;
+            font-size: 12px;
+            margin-bottom: 20px;
+            color: #756352;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 7vw, 100px);
+            line-height: 0.9;
+            font-weight: normal;
+            margin-bottom: 30px;
+        }
+
+        .hero p {
+            font-family: Arial, sans-serif;
+            color: #655c54;
+            line-height: 1.7;
+            max-width: 430px;
+            margin-bottom: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+            width: fit-content;
+            padding: 15px 30px;
+            background: #2d2925;
+            color: white;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            letter-spacing: 2px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #8b6f55;
+        }
+
+        .hero-image {
+            background:
+                linear-gradient(rgba(40,30,20,0.08), rgba(40,30,20,0.08)),
+                url("https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1200&q=85");
+            background-size: cover;
+            background-position: center;
+            min-height: 500px;
+        }
+
+
+        /* COLLECTION */
+
+        .collection {
+            padding: 100px 7%;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 50px;
+        }
+
+        .section-heading h2 {
+            font-size: 45px;
+            font-weight: normal;
+        }
+
+        .section-heading p {
+            font-family: Arial, sans-serif;
+            color: #756d65;
+            font-size: 14px;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .product {
+            background: #ebe4da;
+            overflow: hidden;
+        }
+
+        .product-image {
+            height: 430px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s;
+        }
+
+        .product:hover .product-image {
+            transform: scale(1.04);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 18px;
+            font-weight: normal;
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            color: #776e65;
+        }
+
+        .price {
+            margin-top: 12px;
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+
+
+        /* ABOUT */
+
+        .about {
+            background: #302a25;
+            color: #f5f0e8;
+            padding: 110px 10%;
+            text-align: center;
+        }
+
+        .about span {
+            font-family: Arial, sans-serif;
+            letter-spacing: 4px;
+            font-size: 12px;
+            color: #c4aa91;
+        }
+
+        .about h2 {
+            font-size: 50px;
+            font-weight: normal;
+            margin: 25px 0;
+        }
+
+        .about p {
+            max-width: 700px;
+            margin: auto;
+            font-family: Arial, sans-serif;
+            line-height: 1.8;
+            color: #d0c7bd;
+        }
+
+
+        /* BANNER */
+
+        .banner {
+            margin: 100px 7%;
+            min-height: 420px;
+            display: flex;
+            align-items: center;
+            padding: 70px;
+            background:
+                linear-gradient(rgba(35,25,20,0.3), rgba(35,25,20,0.3)),
+                url("https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1400&q=85");
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .banner-content h2 {
+            font-size: 55px;
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .banner-content p {
+            font-family: Arial, sans-serif;
+            margin-bottom: 30px;
+        }
+
+        .banner .btn {
+            background: white;
+            color: #2d2925;
+        }
+
+
+        /* NEWSLETTER */
+
+        .newsletter {
+            text-align: center;
+            padding: 90px 20px;
+        }
+
+        .newsletter h2 {
+            font-size: 42px;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+
+        .newsletter p {
+            font-family: Arial, sans-serif;
+            color: #746b62;
+            margin-bottom: 30px;
+        }
+
+        .newsletter input {
+            width: 300px;
+            padding: 15px;
+            border: none;
+            border-bottom: 1px solid #2d2925;
+            background: transparent;
+            outline: none;
+        }
+
+        .newsletter button {
+            padding: 15px 25px;
+            background: #2d2925;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background: #211e1b;
+            color: #ddd4ca;
+            padding: 60px 7% 25px;
+        }
+
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 50px;
+        }
+
+        .footer-logo {
+            font-size: 30px;
+            letter-spacing: 5px;
+        }
+
+        footer h4 {
+            font-family: Arial, sans-serif;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            color: #aaa099;
+            line-height: 1.8;
+        }
+
+        .copyright {
+            border-top: 1px solid #413b35;
+            padding-top: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            color: #888078;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 900px) {
+
+            nav ul {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                min-height: 500px;
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .product-image {
+                height: 350px;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .hero-text {
+                padding: 70px 8%;
+            }
+
+            .hero h1 {
+                font-size: 60px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+
+            .product-image {
+                height: 450px;
+            }
+
+            .section-heading {
+                display: block;
+            }
+
+            .section-heading h2 {
+                margin-bottom: 15px;
+            }
+
+            .banner {
+                margin: 50px 5%;
+                padding: 40px;
+            }
+
+            .banner-content h2 {
+                font-size: 40px;
+            }
+
+            .footer-top {
+                display: block;
+            }
+
+            .footer-column {
+                margin-top: 30px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- NAVBAR -->
+
+    <nav>
+
+        <div class="logo">
+            ÉLANE
+        </div>
+
+        <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#collection">SHOP</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+        </ul>
+
+        <div class="cart">
+            🛍 CART (0)
+        </div>
+
+    </nav>
+
+
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-text">
+
+            <div class="small-text">
+                AUTUMN / WINTER 2026
+            </div>
+
+            <h1>
+                Simply<br>
+                Beautiful.
+            </h1>
+
+            <p>
+                Timeless clothing designed for everyday elegance.
+                Discover pieces made to become a part of your story.
+            </p>
+
+            <a href="#collection" class="btn">
+                SHOP COLLECTION
+            </a>
+
+        </div>
+
+
+        <div class="hero-image"></div>
+
+    </section>
+
+
+
+    <!-- COLLECTION -->
+
+    <section class="collection" id="collection">
+
+        <div class="section-heading">
+
+            <div>
+                <p>CURATED FOR YOU</p>
+                <h2>New Collection</h2>
+            </div>
+
+            <p>
+                Explore our latest pieces
+            </p>
+
+        </div>
+
+
+        <div class="products">
+
+
+            <div class="product">
+
+                <div class="product-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=85');">
+                </div>
+
+                <div class="product-info">
+                    <h3>Classic Linen Dress</h3>
+                    <p>Natural Beige</p>
+                    <div class="price">₹2,499</div>
+                </div>
+
+            </div>
+
+
+
+            <div class="product">
+
+                <div class="product-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=800&q=85');">
+                </div>
+
+                <div class="product-info">
+                    <h3>Relaxed Shirt</h3>
+                    <p>Soft White</p>
+                    <div class="price">₹1,799</div>
+                </div>
+
+            </div>
+
+
+
+            <div class="product">
+
+                <div class="product-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=85');">
+                </div>
+
+                <div class="product-info">
+                    <h3>Minimal Blazer</h3>
+                    <p>Mocha Brown</p>
+                    <div class="price">₹3,299</div>
+                </div>
+
+            </div>
+
+
+
+            <div class="product">
+
+                <div class="product-image"
+                    style="background-image: url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=85');">
+                </div>
+
+                <div class="product-info">
+                    <h3>Everyday Top</h3>
+                    <p>Chocolate</p>
+                    <div class="price">₹1,299</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ABOUT -->
+
+    <section class="about" id="about">
+
+        <span>OUR STORY</span>
+
+        <h2>Less, but better.</h2>
+
+        <p>
+            ÉLANE is built around the idea that clothing should feel
+            effortless. We create thoughtfully designed pieces with
+            timeless silhouettes, neutral tones and everyday comfort.
+            Every collection is made to be worn, loved and remembered.
+        </p>
+
+    </section>
+
+
+
+    <!-- BANNER -->
+
+    <section class="banner">
+
+        <div class="banner-content">
+
+            <h2>
+                Your style.<br>
+                Your story.
+            </h2>
+
+            <p>
+                Discover pieces that feel like you.
+            </p>
+
+            <a href="#collection" class="btn">
+                EXPLORE NOW
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- NEWSLETTER -->
+
+    <section class="newsletter" id="contact">
+
+        <h2>Stay in the loop.</h2>
+
+        <p>
+            Sign up for new collections, exclusive offers and updates.
+        </p>
+
+        <input
+            type="email"
+            id="email"
+            placeholder="Your email address">
+
+        <button onclick="subscribe()">
+            JOIN
+        </button>
+
+    </section>
+
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-top">
+
+            <div>
+                <div class="footer-logo">ÉLANE</div>
+                <p>Modern clothing for modern living.</p>
+            </div>
+
+            <div class="footer-column">
+
+                <h4>SHOP</h4>
+
+                <p>
+                    New Arrivals<br>
+                    Dresses<br>
+                    Tops<br>
+                    Outerwear
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>FOLLOW</h4>
+
+                <p>
+                    Instagram<br>
+                    Pinterest<br>
+                    Facebook
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+            © 2026 ÉLANE. All Rights Reserved.
+        </div>
+
+    </footer>
+
+
+
+    <script>
+
+        function subscribe() {
+
+            let email = document.getElementById("email").value;
+
+            if (email === "") {
+
+                alert("Please enter your email.");
+
+            } else {
+
+                alert("Thank you for joining ÉLANE!");
+
+                document.getElementById("email").value = "";
+
+            }
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>
